@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>मातृभूमि सेवा संस्थान - जिलावार आधिकारिक पोर्टल</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- FontAwesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+          <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rozha+One&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .hindi-title { font-family: 'Rozha One', serif; }
+        @media print {
+            body * { visibility: hidden; }
+            #printable-area, #printable-area * { visibility: visible; }
+            #printable-area { position: absolute; left: 0; top: 0; width: 100%; }
+            .no-print { display: none !important; }
+        }
+    </style>
+        </head>
+        <body class="bg-gray-50 text-gray-800">
+          <!-- Top Bar -->
+          <div class="bg-emerald-900 text-white text-xs sm:text-sm py-2 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
+              <p>''सेवा, समर्पण, राष्ट्र निर्माण।''</p>
+              <div class="flex gap-4">
+                <span>CIN No: <strong>U88900UP2026NPL247547</strong>
+              </span>
+              <span>DARPAN ID: <strong>UP/2026/1080829</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Header & Navigation -->
+      <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <img id="header-logo" src="44712.png" alt="Logo" class="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-full border-2 border-emerald-600 shadow">
+              <div>
+                <h1 id="main-heading" class="text-lg sm:text-2xl font-bold text-emerald-900 hindi-title leading-tight">मातृभूमि सेवा संस्थान</h1>
+                <p class="text-xs sm:text-sm font-semibold tracking-wide text-amber-700">MATRABHUMI SEVA ASSOCIATION</p>
+              </div>
+            </div>
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-2 font-medium text-xs">
+              <button onclick="toggleSchemesModal()" class="bg-emerald-900 text-white px-2.5 py-1.5 rounded-md hover:bg-emerald-800 transition shadow font-bold">
+                <i class="fa-solid fa-list-check">
+                </i> योजनाएं
+              </button>
+              <button onclick="togglePublicLoginModal()" class="bg-emerald-700 text-white px-2.5 py-1.5 rounded-md hover:bg-emerald-800 transition shadow font-bold">
+                <i class="fa-solid fa-right-to-bracket">
+                </i> पब्लिक लॉगिन / रजिस्ट्रेशन
+              </button>
+              <button onclick="toggleOfficialLoginModal()" class="bg-blue-800 text-white px-2.5 py-1.5 rounded-md hover:bg-blue-900 transition shadow font-bold">
+                <i class="fa-solid fa-user-tie">
+                </i> आधिकारिक लॉगिन
+              </button>
+              <button onclick="checkAdminAccess()" class="bg-red-800 text-white px-2.5 py-1.5 rounded-md hover:bg-red-900 transition shadow font-bold">
+                <i class="fa-solid fa-lock">
+                </i> Admin Panel
+              </button>
+            </div>
+            <!-- Three-Bar Button -->
+            <button id="menu-btn" class="text-3xl text-emerald-900 focus:outline-none p-2">
+              <i class="fa-solid fa-bars">
+              </i>
+            </button>
+          </div>
+          <!-- Mobile Dropdown Menu -->
+          <div id="mobile-menu" class="hidden bg-emerald-950 text-white border-t px-6 py-4 space-y-2 shadow-xl max-h-[80vh] overflow-y-auto text-xs">
+            <p class="text-xs text-amber-400 font-bold uppercase tracking-wider border-b border-emerald-800 pb-1">मुख्य मेनू एवं लॉगिन</p>
+            <button onclick="toggleSchemesModal(); mobileMenu.classList.add('hidden');" class="w-full text-left py-2 px-3 bg-emerald-900 rounded hover:bg-emerald-800 transition font-bold text-amber-400">
+              <i class="fa-solid fa-list-check mr-2">
+              </i> सभी योजनाएं देखें
+            </button>
+            <button onclick="togglePublicLoginModal(); mobileMenu.classList.add('hidden');" class="w-full text-left py-2 px-3 bg-emerald-700 rounded hover:bg-emerald-800 transition font-bold text-white mb-2">
+              <i class="fa-solid fa-right-to-bracket mr-2">
+              </i> पब्लिक लॉगिन / रजिस्ट्रेशन
+            </button>
+            <button onclick="toggleOfficialLoginModal(); mobileMenu.classList.add('hidden');" class="w-full text-left py-1.5 px-2 bg-blue-900 rounded hover:bg-blue-800 transition text-white font-semibold mb-1">
+              <i class="fa-solid fa-user-tie mr-2 text-amber-400">
+              </i> आधिकारिक लॉगिन
+            </button>
+            <button onclick="checkAdminAccess()" class="w-full text-left py-1.5 px-2 bg-red-900 rounded hover:bg-red-800 transition text-white font-semibold">
+              <i class="fa-solid fa-lock mr-2 text-amber-400">
+              </i> Admin Panel
+            </button>
+          </div>
+        </header>
+        <!-- SCHEMES POPUP MODAL -->
+        <div id="schemes-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center p-4">
+          <div class="bg-white rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto p-6 border-t-8 border-emerald-900 relative">
+            <button onclick="toggleSchemesModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+            <h2 class="text-2xl font-bold text-emerald-900 mb-2 hindi-title text-center">संस्था की कल्याणकारी योजनाएं</h2>
+            <p class="text-xs text-gray-600 text-center mb-6">किसी भी योजना के नीचे दिए गए "आवेदन करें" बटन पर क्लिक करें।</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="schemes-popup-grid">
+            </div>
+          </div>
+        </div>
+        <!-- PUBLIC LOGIN & REGISTRATION MODAL -->
+        <div id="public-login-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4">
+          <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 border-t-8 border-emerald-700 relative">
+            <button onclick="togglePublicLoginModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+            <div id="public-auth-container">
+              <div class="flex border-b mb-4 text-xs font-bold">
+                <button type="button" id="tab-login-btn" onclick="switchAuthTab('login')" class="w-1/2 pb-2 border-b-2 border-emerald-700 text-emerald-900">पब्लिक लॉगिन</button>
+                <button type="button" id="tab-reg-btn" onclick="switchAuthTab('reg')" class="w-1/2 pb-2 text-gray-400">नया रजिस्ट्रेशन</button>
+              </div>
+              <div id="auth-login-box">
+                <h3 class="text-base font-bold text-emerald-900 mb-2 text-center">पब्लिक लॉगिन करें</h3>
+                <form onsubmit="handlePublicLogin(event)" class="space-y-3 text-xs">
+                  <div>
+                    <label class="block font-semibold mb-1">मोबाइल नंबर / यूजर आईडी:</label>
+                    <input type="text" id="pub-user" required class="w-full p-2 border rounded" placeholder="मोबाइल नंबर">
+                    </div>
+                    <div>
+                      <label class="block font-semibold mb-1">पासवर्ड:</label>
+                      <input type="password" id="pub-pass" required class="w-full p-2 border rounded" placeholder="पासवर्ड">
+                      </div>
+                      <button type="submit" class="w-full bg-emerald-800 text-white py-2 rounded font-bold hover:bg-emerald-900 transition mt-2">लॉगिन करें</button>
+                    </form>
+                  </div>
+                  <div id="auth-reg-box" class="hidden">
+                    <h3 class="text-base font-bold text-emerald-900 mb-2 text-center">नया खाता बनाएं</h3>
+                    <form onsubmit="handlePublicRegister(event)" class="space-y-3 text-xs">
+                      <div>
+                        <label class="block font-semibold mb-1">पूरा नाम:</label>
+                        <input type="text" id="reg-name" required class="w-full p-2 border rounded" placeholder="अपना नाम">
+                        </div>
+                        <div>
+                          <label class="block font-semibold mb-1">मोबाइल नंबर:</label>
+                          <input type="tel" id="reg-phone" required class="w-full p-2 border rounded" placeholder="मोबाइल नंबर">
+                          </div>
+                          <div>
+                            <label class="block font-semibold mb-1">पासवर्ड:</label>
+                            <input type="password" id="reg-pass" required class="w-full p-2 border rounded" placeholder="पासवर्ड">
+                            </div>
+                            <button type="submit" class="w-full bg-amber-600 text-white py-2 rounded font-bold hover:bg-amber-700 transition mt-2">रजिस्ट्रेशन करें</button>
+                          </form>
+                        </div>
+                      </div>
+                      <div id="public-dashboard-box" class="hidden">
+                        <div class="flex justify-between items-center border-b pb-3 mb-4">
+                          <div>
+                            <h3 class="text-base font-bold text-emerald-900">
+                              <i class="fa-solid fa-user-check text-amber-600 mr-2">
+                              </i> स्वागत है, <span id="pub-profile-name">
+                            </span>
+                          </h3>
+                          <p class="text-[11px] text-gray-500">आपके द्वारा भरे गए सभी योजनाओं के आवेदन और उनका स्टेटस:</p>
+                        </div>
+                        <button onclick="publicLogout()" class="bg-red-600 text-white px-3 py-1 rounded text-xs font-bold">लॉगआउट</button>
+                      </div>
+                      <div class="flex gap-2 mb-4">
+                        <button onclick="toggleSchemesModal(); togglePublicLoginModal();" class="bg-emerald-800 text-white px-3 py-1.5 rounded text-xs font-bold hover:bg-emerald-900">
+                          <i class="fa-solid fa-plus">
+                          </i> नई योजना में आवेदन करें</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                          <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                              <tr class="bg-emerald-900 text-white">
+                                <th class="p-2 border">क्र.सं.</th>
+                                <th class="p-2 border">योजना का नाम</th>
+                                <th class="p-2 border">जिला व एड्रेस</th>
+                                <th class="p-2 border">स्टेटस व रिमार्क</th>
+                                <th class="p-2 border">प्रिंट / प्रमाण पत्र</th>
+                              </tr>
+                            </thead>
+                            <tbody id="my-applications-list">
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- PRINTABLE APPLICATION & APPROVAL CERTIFICATE MODAL -->
+                  <div id="print-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center p-4">
+                    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-8 relative max-h-[90vh] overflow-y-auto" id="printable-area">
+                      <button onclick="closePrintModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold no-print">&times;</button>
+                      <div class="text-center border-b-2 border-emerald-900 pb-4 mb-4">
+                        <h2 class="text-xl font-bold text-emerald-900 hindi-title">मातृभूमि सेवा संस्थान</h2>
+                        <p class="text-xs text-amber-700 font-bold">MATRABHUMI SEVA ASSOCIATION</p>
+                        <p id="cert-title-heading" class="text-sm font-bold text-gray-800 mt-2 bg-gray-100 py-1 rounded">योजना आवेदन पावती पत्र (Acknowledgement Receipt)</p>
+                      </div>
+                      <div class="space-y-3 text-xs">
+                        <div class="flex justify-between border-b pb-1">
+                          <span>आवेदन संख्या (App ID):</span> <strong id="prn-id">
+                        </strong>
+                      </div>
+                      <div class="flex justify-between border-b pb-1">
+                        <span>आवेदक का नाम:</span> <strong id="prn-name">
+                      </strong>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                      <span>मोबाइल नंबर:</span> <strong id="prn-phone">
+                    </strong>
+                  </div>
+                  <div class="flex justify-between border-b pb-1">
+                    <span>चुनी गई योजना:</span> <strong id="prn-service" class="text-emerald-900 font-bold">
+                  </strong>
+                </div>
+                <div class="flex justify-between border-b pb-1">
+                  <span>जिला:</span> <strong id="prn-district">
+                </strong>
+              </div>
+              <div class="flex justify-between border-b pb-1">
+                <span>पूरा पता:</span> <strong id="prn-address">
+              </strong>
+            </div>
+            <div class="flex justify-between border-b pb-1">
+              <span>वर्तमान स्टेटस:</span> <strong id="prn-status">
+            </strong>
+          </div>
+          <div id="approval-remark-box" class="hidden bg-green-50 p-3 rounded border border-green-300 mt-2">
+            <p class="font-bold text-green-900 mb-1">
+              <i class="fa-solid fa-award">
+              </i> संस्था की स्वीकृति (Approval Certificate):</p>
+              <p id="prn-comment" class="text-gray-700 italic">
+              </p>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t flex justify-between items-center text-xs">
+            <div>
+              <p>दिनांक: <span id="prn-date">
+              </span>
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-32 border-b border-gray-400 mb-1">
+            </div>
+            <strong>प्राधिकृत हस्ताक्षर (Seal & Sign)</strong>
+          </div>
+        </div>
+        <div class="mt-6 text-center no-print">
+          <button onclick="window.print()" class="bg-blue-800 text-white px-6 py-2 rounded text-xs font-bold hover:bg-blue-900">
+            <i class="fa-solid fa-print">
+            </i> प्रिंट करें (Print)</button>
+            <button onclick="closePrintModal()" class="bg-gray-600 text-white px-4 py-2 rounded text-xs font-bold ml-2">बंद करें</button>
+          </div>
+        </div>
+      </div>
+      <!-- OFFICIAL LOGIN MODAL -->
+      <div id="official-login-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 border-t-8 border-blue-800 relative">
+          <button onclick="toggleOfficialLoginModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+          <div id="off-login-box" class="max-w-md mx-auto my-6">
+            <h3 class="text-lg font-bold text-blue-900 mb-2 text-center">
+              <i class="fa-solid fa-user-tie">
+              </i> आधिकारिक सुरक्षा लॉगिन</h3>
+              <p class="text-xs text-gray-600 mb-4 text-center">डिफ़ॉल्ट यूजर: <strong>officer</strong> / पासवर्ड: <strong>123</strong>
+            </p>
+            <div class="space-y-3 text-xs">
+              <input type="text" id="off-user" placeholder="यूजर आईडी" class="w-full p-2.5 border rounded text-center">
+                <input type="password" id="off-pass" placeholder="पासवर्ड" class="w-full p-2.5 border rounded text-center">
+                  <button type="button" onclick="verifyOfficialLogin()" class="w-full bg-blue-800 text-white py-2.5 rounded font-bold hover:bg-blue-900 transition">लॉगिन करें</button>
+                </div>
+              </div>
+              <div id="off-dashboard-box" class="hidden">
+                <div class="flex justify-between items-center border-b pb-3 mb-4">
+                  <h3 class="text-base font-bold text-blue-900">
+                    <i class="fa-solid fa-list-check text-amber-600 mr-2">
+                    </i> <span id="officer-title-text">जिला आवेदन समीक्षा</span>
+                  </h3>
+                  <button onclick="logoutOfficial()" class="bg-red-600 text-white px-3 py-1 rounded text-xs font-bold">लॉगआउट</button>
+                </div>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                      <tr class="bg-blue-900 text-white">
+                        <th class="p-2 border">क्र.सं.</th>
+                        <th class="p-2 border">आवेदक</th>
+                        <th class="p-2 border">मोबाइल</th>
+                        <th class="p-2 border">योजना</th>
+                        <th class="p-2 border">जिला व पूरा एड्रेस</th>
+                        <th class="p-2 border">डाक्यूमेंट</th>
+                        <th class="p-2 border">स्टेटस व रिमार्क</th>
+                        <th class="p-2 border">एक्शन</th>
+                      </tr>
+                    </thead>
+                    <tbody id="official-data-list">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SCHEME APPLICATION FORM MODAL -->
+          <div id="registration-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4">
+            <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 border-t-8 border-amber-600 relative">
+              <button onclick="toggleRegistrationModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+              <h2 class="text-xl font-bold text-emerald-900 mb-2 hindi-title text-center">योजना आवेदन फॉर्म</h2>
+              <p class="text-[11px] text-green-700 font-bold text-center mb-3">लॉगिन यूजर: <span id="logged-user-display" class="underline">
+              </span>
+            </p>
+            <form id="public-form" onsubmit="handlePublicSubmit(event)" class="space-y-3 text-xs">
+              <div>
+                <label class="block font-semibold mb-1">चुनी गई योजना:</label>
+                <input type="text" id="p-service" readonly class="w-full p-2 border rounded bg-gray-100 font-bold text-emerald-900">
+                </div>
+                <div>
+                  <label class="block font-semibold mb-1">आवेदक का पूरा नाम:</label>
+                  <input type="text" id="p-name" required class="w-full p-2 border rounded" placeholder="नाम लिखें">
+                  </div>
+                  <div>
+                    <label class="block font-semibold mb-1">मोबाइल नंबर:</label>
+                    <input type="tel" id="p-phone" required class="w-full p-2 border rounded" placeholder="मोबाइल नंबर">
+                    </div>
+                    <div>
+                      <label class="block font-semibold mb-1">जिला चुनें (District):</label>
+                      <select id="p-district" required class="w-full p-2 border rounded bg-white font-bold text-emerald-900">
+                        <option value="">-- अपना जिला चुनें --</option>
+                        <option value="Jalaun">Jalaun (जालौन)</option>
+                        <option value="Kanpur Dehat">Kanpur Dehat (कानपुर देहात)</option>
+                        <option value="Auraiya">Auraiya (औरैया)</option>
+                        <option value="Etawah">Etawah (इटावा)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="block font-semibold mb-1">पूरा पता (Full Address):</label>
+                      <textarea id="p-address" required class="w-full p-2 border rounded h-16" placeholder="मकान नंबर, गांव/मोहल्ला, पोस्ट, ब्लॉक, थाना, पिन कोड...">
+                      </textarea>
+                    </div>
+                    <div>
+                      <label class="block font-semibold mb-1">डाक्यूमेंट अपलोड करें:</label>
+                      <input type="file" id="p-doc" required class="w-full p-1 border rounded bg-gray-50">
+                      </div>
+                      <button type="submit" class="w-full bg-emerald-800 text-white py-2 rounded font-bold hover:bg-emerald-900 transition">आवेदन जमा करें</button>
+                    </form>
+                  </div>
+                </div>
+                <!-- DOCUMENT VIEW MODAL -->
+                <div id="doc-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4">
+                  <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 relative text-center">
+                    <button onclick="closeDocModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+                    <h3 class="text-base font-bold text-blue-900 mb-3">
+                      <i class="fa-solid fa-file-lines">
+                      </i> आवेदक का डाक्यूमेंट</h3>
+                      <div id="doc-content-box" class="bg-gray-100 p-4 rounded text-center min-h-[150px] flex items-center justify-center border mb-4">
+                      </div>
+                      <button onclick="closeDocModal()" class="bg-gray-600 text-white px-4 py-1.5 rounded text-xs font-bold">बंद करें</button>
+                    </div>
+                  </div>
+                  <!-- ADMIN LOGIN MODAL -->
+                  <div id="admin-login-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center p-4">
+                    <div class="bg-white rounded-xl shadow-2xl max-w-sm w-full p-6 border-t-8 border-red-700 text-center">
+                      <h3 class="text-lg font-bold text-red-800 mb-2">
+                        <i class="fa-solid fa-lock">
+                        </i> Admin Lock Security</h3>
+                        <p class="text-xs text-gray-600 mb-4">पासवर्ड दर्ज करें (डिफ़ॉल्ट: 1234)</p>
+                        <input type="password" id="admin-pass-input" placeholder="Admin Password" class="w-full p-2 border rounded mb-3 text-xs text-center">
+                          <div class="flex gap-2">
+                            <button onclick="verifyAdminPassword()" class="w-full bg-red-800 text-white py-1.5 rounded text-xs font-bold">Unlock</button>
+                            <button onclick="closeAdminLogin()" class="w-full bg-gray-500 text-white py-1.5 rounded text-xs">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- ADMIN PANEL MODAL -->
+                      <div id="admin-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4">
+                        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 border-t-8 border-red-700">
+                          <div class="flex justify-between items-center border-b pb-3 mb-4">
+                            <h3 class="text-xl font-bold text-red-800">
+                              <i class="fa-solid fa-sliders">
+                              </i> Admin Control Panel</h3>
+                              <button onclick="toggleAdminPanel()" class="text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+                            </div>
+                            <div class="space-y-4 text-sm">
+                              <div class="bg-gray-50 p-4 rounded-lg border">
+                                <h4 class="font-bold text-emerald-900 mb-2 text-xs">वेबसाइट का लोगो बदलें (सभी इमेज फॉर्मेट)</h4>
+                                <input type="file" id="logo-file" accept="image/*" class="w-full p-1 border rounded bg-white mb-2 text-xs">
+                                  <button onclick="updateWebsiteLogo()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold w-full">लोगो अपडेट करें</button>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg border">
+                                  <h4 class="font-bold text-emerald-900 mb-2 text-xs">VIP सदस्य जोड़ें या हटाएं (सभी इमेज फॉर्मेट)</h4>
+                                  <input type="text" id="vip-name" placeholder="नाम" class="w-full p-2 border rounded mb-2 text-xs">
+                                    <select id="vip-designation" class="w-full p-2 border rounded bg-white mb-2 text-xs">
+                                      <option value="राष्ट्रीय अध्यक्ष / संस्थापक">राष्ट्रीय अध्यक्ष / संस्थापक</option>
+                                      <option value="प्रधानमंत्री (PM)">प्रधानमंत्री (PM)</option>
+                                      <option value="मुख्यमंत्री (CM)">मुख्यमंत्री (CM)</option>
+                                      <option value="राष्ट्रीय सचिव">राष्ट्रीय सचिव</option>
+                                      <option value="सोशल मीडिया प्रभारी">सोशल मीडिया प्रभारी</option>
+                                      <option value="जिला अध्यक्ष">जिला अध्यक्ष</option>
+                                    </select>
+                                    <input type="file" id="vip-img-file" accept="image/*" class="w-full p-1 border rounded bg-white mb-2 text-xs">
+                                      <button onclick="addVIPPhoto()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold mb-3 w-full">VIP Photo जोड़ें</button>
+                                      <select id="delete-vip-select" class="w-full p-2 border rounded bg-white mb-2 text-xs">
+                                      </select>
+                                      <button onclick="deleteVIP()" class="bg-gray-700 text-white px-3 py-1.5 rounded text-xs font-bold w-full">चयनित VIP हटाएं</button>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg border">
+                                      <h4 class="font-bold text-emerald-900 mb-2 text-xs">
+                                        <i class="fa-solid fa-building-columns text-amber-600">
+                                        </i> बैंक विवरण और QR Code अपडेट करें</h4>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2 text-xs">
+                                          <input type="text" id="edit-bank-name" placeholder="Bank Name" class="p-2 border rounded">
+                                            <input type="text" id="edit-ac-no" placeholder="Account Number" class="p-2 border rounded">
+                                              <input type="text" id="edit-ifsc" placeholder="IFSC Code" class="p-2 border rounded">
+                                                <input type="text" id="edit-upi" placeholder="UPI ID" class="p-2 border rounded">
+                                                </div>
+                                                <label class="block font-semibold mb-1 text-[11px] text-gray-600">नया QR Code इमेज अपलोड करें:</label>
+                                                <input type="file" id="edit-qr-file" accept="image/*" class="w-full p-1 border rounded bg-white mb-2 text-xs">
+                                                  <button onclick="updateBankAndQR()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold w-full">बैंक विवरण और QR Code सेव करें</button>
+                                                </div>
+                                                <div class="bg-gray-50 p-4 rounded-lg border">
+                                                  <h4 class="font-bold text-emerald-900 mb-2 text-xs">योजनाएं मैनेज करें (फोटो अपडेट सहित)</h4>
+                                                  <div class="mb-4 pb-3 border-b">
+                                                    <label class="block font-bold mb-1 text-xs text-blue-900">1. पुरानी योजना की फोटो बदलें:</label>
+                                                    <select id="update-scheme-select" class="w-full p-2 border rounded bg-white mb-2 text-xs">
+                                                    </select>
+                                                    <input type="file" id="update-scheme-file" accept="image/*" class="w-full p-1 border rounded bg-white mb-2 text-xs">
+                                                      <button onclick="updateExistingSchemePhoto()" class="bg-blue-800 text-white px-3 py-1.5 rounded text-xs font-bold w-full">योजना की फोटो अपडेट करें</button>
+                                                    </div>
+                                                    <div>
+                                                      <label class="block font-bold mb-1 text-xs text-emerald-900">2. नई योजना जोड़ें:</label>
+                                                      <input type="text" id="admin-scheme-title" placeholder="योजना का नाम" class="w-full p-2 border rounded mb-2 text-xs">
+                                                        <textarea id="admin-scheme-desc" placeholder="विवरण..." class="w-full p-2 border rounded mb-2 text-xs">
+                                                        </textarea>
+                                                        <input type="file" id="admin-scheme-file" accept="image/*" class="w-full p-1 border rounded bg-white mb-2 text-xs">
+                                                          <button onclick="addNewScheme()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold mb-3 w-full">फोटो सहित नई योजना जोड़ें</button>
+                                                          <select id="delete-scheme-select" class="w-full p-2 border rounded bg-white mb-2 text-xs">
+                                                          </select>
+                                                          <button onclick="deleteScheme()" class="bg-gray-700 text-white px-3 py-1.5 rounded text-xs font-bold w-full">चयनित योजना हटाएं</button>
+                                                        </div>
+                                                      </div>
+                                                      <div class="bg-gray-50 p-4 rounded-lg border">
+                                                        <h4 class="font-bold text-emerald-900 mb-2 text-xs">नोटिस बोर्ड मैनेज करें</h4>
+                                                        <input type="text" id="admin-notice-title" placeholder="शीर्षक" class="w-full p-2 border rounded mb-2 text-xs">
+                                                          <textarea id="admin-notice-desc" placeholder="विवरण..." class="w-full p-2 border rounded mb-2 text-xs">
+                                                          </textarea>
+                                                          <input type="file" id="admin-notice-file" accept=".pdf,.doc,.docx,.jpg,.png" class="w-full p-1 border rounded bg-white mb-2 text-xs">
+                                                            <button onclick="addUnlimitedNotice()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold mb-3 w-full">नया नोटिस जोड़ें</button>
+                                                            <select id="delete-notice-select" class="w-full p-2 border rounded bg-white mb-2 text-xs">
+                                                            </select>
+                                                            <button onclick="deleteNotice()" class="bg-gray-700 text-white px-3 py-1.5 rounded text-xs font-bold w-full">चयनित नोटिस हटाएं</button>
+                                                          </div>
+                                                          <div class="bg-gray-50 p-4 rounded-lg border">
+                                                            <h4 class="font-bold text-emerald-900 mb-2 text-xs">
+                                                              <i class="fa-solid fa-images text-amber-600">
+                                                              </i> स्लाइडर बार के लिए फोटो अपलोड करें (सभी प्रकार की इमेज)</h4>
+                                                              <div class="space-y-2 text-xs mb-3">
+                                                                <div>
+                                                                  <input type="text" id="s-title-1" placeholder="शीर्षक 1" class="w-full p-1 border rounded mb-1">
+                                                                    <input type="file" id="s-file-1" accept="image/*" class="w-full p-1 border rounded bg-white">
+                                                                    </div>
+                                                                    <div>
+                                                                      <input type="text" id="s-title-2" placeholder="शीर्षक 2" class="w-full p-1 border rounded mb-1">
+                                                                        <input type="file" id="s-file-2" accept="image/*" class="w-full p-1 border rounded bg-white">
+                                                                        </div>
+                                                                        <div>
+                                                                          <input type="text" id="s-title-3" placeholder="शीर्षक 3" class="w-full p-1 border rounded mb-1">
+                                                                            <input type="file" id="s-file-3" accept="image/*" class="w-full p-1 border rounded bg-white">
+                                                                            </div>
+                                                                            <div>
+                                                                              <input type="text" id="s-title-4" placeholder="शीर्षक 4" class="w-full p-1 border rounded mb-1">
+                                                                                <input type="file" id="s-file-4" accept="image/*" class="w-full p-1 border rounded bg-white">
+                                                                                </div>
+                                                                                <div>
+                                                                                  <input type="text" id="s-title-5" placeholder="शीर्षक 5" class="w-full p-1 border rounded mb-1">
+                                                                                    <input type="file" id="s-file-5" accept="image/*" class="w-full p-1 border rounded bg-white">
+                                                                                    </div>
+                                                                                    <div>
+                                                                                      <input type="text" id="s-title-6" placeholder="शीर्षक 6" class="w-full p-1 border rounded mb-1">
+                                                                                        <input type="file" id="s-file-6" accept="image/*" class="w-full p-1 border rounded bg-white">
+                                                                                        </div>
+                                                                                      </div>
+                                                                                      <button onclick="saveAll6Sliders()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold w-full">सभी 6 स्लाइडर फोटो सेव करें</button>
+                                                                                    </div>
+                                                                                    <div class="bg-gray-50 p-4 rounded-lg border">
+                                                                                      <h4 class="font-bold text-emerald-900 mb-2 text-xs">Google Map लोकेशन</h4>
+                                                                                      <textarea id="admin-map-input" placeholder='<iframe src="...">
+                                                                                      </iframe>' class="w-full p-2 border rounded mb-2 text-xs h-20">
+                                                                                    </textarea>
+                                                                                    <button onclick="saveGoogleMap()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold w-full">मैप सेव करें</button>
+                                                                                  </div>
+                                                                                  <div class="bg-gray-50 p-4 rounded-lg border">
+                                                                                    <h4 class="font-bold text-emerald-900 mb-2 text-xs">सोशल मीडिया लिंक्स</h4>
+                                                                                    <div class="space-y-2 text-xs mb-3">
+                                                                                      <input type="text" id="social-fb" placeholder="Facebook URL" class="w-full p-1.5 border rounded">
+                                                                                        <input type="text" id="social-yt" placeholder="YouTube URL" class="w-full p-1.5 border rounded">
+                                                                                          <input type="text" id="social-ig" placeholder="Instagram URL" class="w-full p-1.5 border rounded">
+                                                                                            <input type="text" id="social-wa" placeholder="WhatsApp URL" class="w-full p-1.5 border rounded">
+                                                                                              <input type="text" id="social-tg" placeholder="Telegram URL" class="w-full p-1.5 border rounded">
+                                                                                              </div>
+                                                                                              <button onclick="saveSocialLinks()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold w-full">सोशल मीडिया सेव करें</button>
+                                                                                            </div>
+                                                                                            <div class="bg-gray-50 p-4 rounded-lg border">
+                                                                                              <h4 class="font-bold text-emerald-900 mb-2 text-xs">जिलावार Officer ID बनाएं</h4>
+                                                                                              <input type="text" id="new-officer-user" placeholder="यूजर आईडी" class="w-full p-2 border rounded mb-2 text-xs">
+                                                                                                <input type="password" id="new-officer-pass" placeholder="पासवर्ड" class="w-full p-2 border rounded mb-2 text-xs">
+                                                                                                  <select id="new-officer-district" class="w-full p-2 border rounded bg-white mb-2 text-xs font-bold">
+                                                                                                    <option value="All">सभी जिले (Super Admin)</option>
+                                                                                                    <option value="Jalaun">Jalaun</option>
+                                                                                                    <option value="Kanpur Dehat">Kanpur Dehat</option>
+                                                                                                    <option value="Auraiya">Auraiya</option>
+                                                                                                    <option value="Etawah">Etawah</option>
+                                                                                                  </select>
+                                                                                                  <button onclick="addNewOfficer()" class="bg-red-800 text-white px-3 py-1.5 rounded text-xs font-bold mb-3 w-full">नया जिला ऑफिसर आईडी बनाएं</button>
+                                                                                                  <select id="delete-officer-select" class="w-full p-2 border rounded bg-white mb-2 text-xs">
+                                                                                                  </select>
+                                                                                                  <button onclick="deleteOfficer()" class="bg-gray-700 text-white px-3 py-1.5 rounded text-xs font-bold w-full">चयनित ऑफिसर आईडी हटाएं</button>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                              <div class="mt-4 text-right border-t pt-2">
+                                                                                                <button onclick="toggleAdminPanel()" class="bg-gray-600 text-white px-4 py-1.5 rounded text-xs font-bold">Close (बंद करें)</button>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                          <!-- VIP PHOTOS COLUMN SECTION -->
+                                                                                          <section class="max-w-7xl mx-auto px-4 pt-6">
+                                                                                            <div class="text-center mb-4">
+                                                                                              <h3 class="text-lg font-bold text-emerald-900 hindi-title">संस्था एवं संरक्षक गण (VIP Column)</h3>
+                                                                                              <div class="w-20 h-1 bg-amber-600 mx-auto mt-1">
+                                                                                              </div>
+                                                                                            </div>
+                                                                                            <div id="vip-photos-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 text-center">
+                                                                                            </div>
+                                                                                          </section>
+                                                                                          <!-- SLIDER BAR SECTION -->
+                                                                                          <section class="max-w-7xl mx-auto px-4 py-6">
+                                                                                            <div class="relative w-full h-56 sm:h-80 rounded-xl overflow-hidden shadow-2xl border-4 border-emerald-900 bg-gray-900">
+                                                                                              <div id="slider-container" class="relative w-full h-full">
+                                                                                                <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-100 flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('44751.jpg');">
+                                                                                                  <div class="text-center text-white px-4">
+                                                                                                    <h2 class="text-xl sm:text-3xl font-bold hindi-title">मातृभूमि सेवा संस्थान - सेवा ही संकल्प</h2>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </section>
+                                                                                          <!-- NOTICE BOARD SECTION -->
+                                                                                          <section class="max-w-5xl mx-auto px-4 py-4">
+                                                                                            <div class="bg-white rounded-xl shadow-xl border-2 border-emerald-800 overflow-hidden">
+                                                                                              <div class="bg-emerald-900 text-white px-4 py-3 font-bold flex justify-between items-center text-sm">
+                                                                                                <span>
+                                                                                                  <i class="fa-solid fa-bullhorn text-amber-400 mr-2">
+                                                                                                  </i> नवीनतम नोटिस बोर्ड (Notice Board)</span>
+                                                                                                  <span class="text-xs bg-amber-600 px-2 py-0.5 rounded text-white font-semibold">Live Updates</span>
+                                                                                                </div>
+                                                                                                <div id="notice-board-container" class="p-4 bg-emerald-50 max-h-60 overflow-y-auto space-y-3 text-xs">
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </section>
+                                                                                            <!-- GOOGLE MAP LOCATION SECTION -->
+                                                                                            <section class="max-w-5xl mx-auto px-4 py-4">
+                                                                                              <div class="bg-white rounded-xl shadow-xl border-2 border-emerald-800 overflow-hidden">
+                                                                                                <div class="bg-emerald-900 text-white px-4 py-3 font-bold flex justify-between items-center text-sm">
+                                                                                                  <span>
+                                                                                                    <i class="fa-solid fa-map-location-dot text-amber-400 mr-2">
+                                                                                                    </i> संस्था की लोकेशन (Google Map Location)</span>
+                                                                                                    <span class="text-xs bg-amber-600 px-2 py-0.5 rounded text-white font-semibold">Our Office</span>
+                                                                                                  </div>
+                                                                                                  <div id="google-map-container" class="p-2 bg-emerald-50 w-full h-72 flex items-center justify-center">
+                                                                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.395724219468!2d80.9461595754378!3d26.846708376686125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd088e5d0f1f%3A0x8797f1f0a28f8045!2sUttar%20Pradesh%20Secretariat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                                                                                                    </iframe>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </section>
+                                                                                              <!-- BANK DETAILS & QR CODE SECTION -->
+                                                                                              <section class="max-w-5xl mx-auto px-4 py-6">
+                                                                                                <div class="bg-emerald-900 text-white rounded-xl shadow-xl p-6 border-t-4 border-amber-500">
+                                                                                                  <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                                                                                                    <i class="fa-solid fa-building-columns text-amber-400">
+                                                                                                    </i> संस्था की बैंक विवरण एवं QR कोड (सहयोग हेतु)</h3>
+                                                                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                                                                                      <div class="space-y-2 text-xs bg-emerald-950 p-4 rounded-lg border border-emerald-800">
+                                                                                                        <p>
+                                                                                                          <strong>Bank Name:</strong> <span id="lbl-bank">State Bank of India</span>
+                                                                                                        </p>
+                                                                                                        <p>
+                                                                                                          <strong>Account No:</strong> <span id="lbl-ac">45243554345</span>
+                                                                                                        </p>
+                                                                                                        <p>
+                                                                                                          <strong>IFSC Code:</strong> <span id="lbl-ifsc">SBIN0064993</span>
+                                                                                                        </p>
+                                                                                                        <p>
+                                                                                                          <strong>UPI ID:</strong> <span id="lbl-upi">9454391778@ptyes</span>
+                                                                                                        </p>
+                                                                                                      </div>
+                                                                                                      <div class="text-center bg-white text-gray-800 p-4 rounded-lg shadow flex flex-col items-center">
+                                                                                                        <p class="text-xs font-bold text-emerald-900 mb-2">स्कैन करें और सहयोग करें (QR Code)</p>
+                                                                                                        <img id="display-qr-img" src="44712.png" alt="QR Code" class="w-32 h-32 object-contain border p-1 rounded shadow">
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </section>
+                                                                                                  <footer class="bg-gray-900 text-gray-300 py-6 px-4 text-xs text-center">
+                                                                                                    <div id="footer-social-icons" class="flex justify-center gap-4 mb-3 text-lg">
+                                                                                                    </div>
+                                                                                                    <p>&copy; 2026 Matrabhumi Seva Association. All Rights Reserved.</p>
+                                                                                                    <p class="text-amber-500 mt-1">राष्ट्रीय अध्यक्ष/संस्थापक : नीरज कुमार निषाद (9454391778)</p>
+                                                                                                  </footer>
+                                                                                                  <!-- JavaScript -->
+                                                                                                  <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        function toggleOfficialLoginModal() {
+            let modal = document.getElementById('official-login-modal');
+            if(!modal) { createOfficialLoginModalDOM(); }
+            document.getElementById('official-login-modal').classList.toggle('hidden');
+            mobileMenu.classList.add('hidden');
+        }
+
+        function createOfficialLoginModalDOM() {
+            let div = document.createElement('div');
+            div.id = "official-login-modal";
+            div.className = "hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex justify-center items-center p-4";
+            div.innerHTML = `
+                <div class="bg-white rounded-xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto p-6 border-t-8 border-blue-800 relative">
+                    <button onclick="toggleOfficialLoginModal()" class="absolute right-4 top-4 text-gray-500 hover:text-red-700 text-xl font-bold">&times;</button>
+                    
+                    <div id="off-login-box" class="max-w-md mx-auto my-6">
+                        <h3 class="text-lg font-bold text-blue-900 mb-2 text-center"><i class="fa-solid fa-user-tie"></i> आधिकारिक सुरक्षा लॉगिन</h3>
+                        <p class="text-xs text-gray-600 mb-4 text-center">डिफ़ॉल्ट यूजर: <strong>officer</strong> / पासवर्ड: <strong>123</strong></p>
+                        <div class="space-y-3 text-xs">
+                            <input type="text" id="off-user" placeholder="यूजर आईडी" class="w-full p-2.5 border rounded text-center">
+                            <input type="password" id="off-pass" placeholder="पासवर्ड" class="w-full p-2.5 border rounded text-center">
+                            <button type="button" onclick="verifyOfficialLogin()" class="w-full bg-blue-800 text-white py-2.5 rounded font-bold hover:bg-blue-900 transition">लॉगिन करें</button>
+                        </div>
+                    </div>
+
+                    <div id="off-dashboard-box" class="hidden">
+                        <div class="flex justify-between items-center border-b pb-3 mb-4">
+                            <h3 class="text-base font-bold text-blue-900"><i class="fa-solid fa-list-check text-amber-600 mr-2"></i> <span id="officer-title-text">जिला आवेदन समीक्षा</span></h3>
+                            <button onclick="logoutOfficial()" class="bg-red-600 text-white px-3 py-1 rounded text-xs font-bold">लॉगआउट</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs">
+                               <thead>
+                                    <tr class="bg-blue-900 text-white">
+                                        <th class="p-2 border">क्र.सं.</th>
+                                        <th class="p-2 border">आवेदक</th>
+                                        <th class="p-2 border">मोबाइल</th>
+                                        <th class="p-2 border">योजना</th>
+                                        <th class="p-2 border">जिला व पूरा एड्रेस</th>
+                                        <th class="p-2 border">डाक्यूमेंट</th>
+                                        <th class="p-2 border">स्टेटस व रिमार्क</th>
+                                        <th class="p-2 border">एक्शन</th>
+                                    </tr>
+                               </thead>
+                               <tbody id="official-data-list"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(div);
+        }
+
+        let currentLoggedOfficerDistrict = "All";
+
+        function verifyOfficialLogin() {
+            let u = document.getElementById('off-user').value, p = document.getElementById('off-pass').value;
+            let officers = JSON.parse(localStorage.getItem('officers_list') || JSON.stringify([{user: "officer", pass: "123", district: "All"}]));
+            let found = officers.find(o => o.user === u && o.pass === p);
+            if(found || (u === "officer" && p === "123")) {
+                currentLoggedOfficerDistrict = found ? (found.district || "All") : "All";
+                document.getElementById('off-login-box').classList.add('hidden');
+                document.getElementById('off-dashboard-box').classList.remove('hidden');
+                document.getElementById('officer-title-text').innerText = `आधिकारिक समीक्षा (जिला: ${currentLoggedOfficerDistrict})`;
+                loadOfficialData();
+            } else { alert('गलत आईडी या पासवर्ड!'); }
+        }
+
+        function logoutOfficial() {
+            document.getElementById('off-dashboard-box').classList.add('hidden');
+            document.getElementById('off-login-box').classList.remove('hidden');
+            document.getElementById('off-user').value = '';
+            document.getElementById('off-pass').value = '';
+        }
+
+        function loadOfficialData() {
+            let apps = JSON.parse(localStorage.getItem('public_applications') || '[]');
+            let tbody = document.getElementById('official-data-list');
+            if(!tbody) return;
+            tbody.innerHTML = '';
+
+            let filteredApps = apps.filter(app => currentLoggedOfficerDistrict === "All" || app.district === currentLoggedOfficerDistrict);
+
+            if(filteredApps.length === 0) { 
+                tbody.innerHTML = `<tr><td colspan="8" class="text-center p-6 text-gray-500 font-semibold">आपके जिले (${currentLoggedOfficerDistrict}) के लिए कोई नया आवेदन प्राप्त नहीं हुआ है।</td></tr>`; 
+                return; 
+            }
+
+            filteredApps.forEach((app, index) => {
+                let badge = app.status === 'Approved' ? "bg-green-100 text-green-800" : (app.status === 'Rejected' ? "bg-red-100 text-red-800" : "bg-amber-100 text-amber-800");
+                tbody.innerHTML += `
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-2 border">${index + 1}</td>
+                        <td class="p-2 border font-semibold">${app.name}</td>
+                        <td class="p-2 border">${app.phone}</td>
+                        <td class="p-2 border font-bold text-emerald-900">${app.service}</td>
+                        <td class="p-2 border"><strong class="text-amber-700">[${app.district}]</strong><br>${app.address}</td>
+                        <td class="p-2 border"><button onclick="viewDocument('${app.docName}')" class="bg-blue-600 text-white px-2 py-1 rounded font-semibold text-[11px]"><i class="fa-solid fa-eye mr-1"></i> देखें</button></td>
+                        <td class="p-2 border"><span class="${badge} px-2 py-0.5 rounded font-bold">${app.status}</span>${app.comment ? `<p class="text-[10px] text-gray-600 mt-1 italic">${app.comment}</p>` : ''}</td>
+                        <td class="p-2 border space-x-1">
+                            <button onclick="promptStatus(${app.id}, 'Approved')" class="bg-green-700 text-white px-2 py-1 rounded font-bold text-[10px]"><i class="fa-solid fa-check"></i> Approve</button>
+                            <button onclick="promptStatus(${app.id}, 'Rejected')" class="bg-red-700 text-white px-2 py-1 rounded font-bold text-[10px]"><i class="fa-solid fa-xmark"></i> Reject</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function viewDocument(docName) {
+            document.getElementById('doc-content-box').innerHTML = `<div><i class="fa-solid fa-file-pdf text-red-600 text-4xl mb-2"></i><p class="font-bold text-sm">${docName}</p></div>`;
+            document.getElementById('doc-modal').classList.remove('hidden');
+        }
+        function closeDocModal() { document.getElementById('doc-modal').classList.add('hidden'); }
+
+        function promptStatus(id, newStatus) {
+            let comment = prompt(`कारण या कमेंट दर्ज करें:`, newStatus === 'Approved' ? 'स्वीकृत किया गया।' : 'अस्वीकृत किया गया।');
+            if(comment !== null) {
+                let apps = JSON.parse(localStorage.getItem('public_applications') || '[]');
+                apps = apps.map(app => { if(app.id === id) { app.status = newStatus; app.comment = comment; } return app; });
+                localStorage.setItem('public_applications', JSON.stringify(apps));
+                loadOfficialData();
+                alert('स्टेटस अपडेट हो गया!');
+            }
+        }
+
+        const defaultSchemes = [
+            {title: "पर्यावरण का क्षेत्र", desc: "फलदार व छायादार वृक्षारोपण।", img: "44751.jpg"},
+            {title: "शिक्षा का क्षेत्र", desc: "उत्तम शिक्षा व कम्प्यूटर शिक्षा।", img: "44958.jpg"},
+            {title: "रोजगार का क्षेत्र", desc: "कौशल विकास व रोजगार के अवसर।", img: "44751.jpg"},
+            {title: "स्वास्थ्य का क्षेत्र", desc: "स्वास्थ्य शिविर व ऑपरेशन।", img: "44958.jpg"},
+            {title: "सरकारी योजनायें", desc: "योजनाओं का लाभ पहुँचाना।", img: "44751.jpg"},
+            {title: "सार्वजनिक स्थान", desc: "वाटर कूलर आदि की स्थापना।", img: "44958.jpg"},
+            {title: "कृषि का क्षेत्र", desc: "सिंचाई व कृषि उपकरण।", img: "44751.jpg"},
+            {title: "कन्या विवाह", desc: "सामूहिक विवाह व धार्मिक कार्य।", img: "44958.jpg"},
+            {title: "कानूनी सहायता", desc: "प्रत्येक नागरिक के मूल अधिकारों की रक्षा।", img: "44751.jpg"},
+            {title: "अनाथ आश्रम", desc: "अनाथ आलय का संचालन।", img: "44958.jpg"},
+            {title: "वृद्धा आश्रम", desc: "बुजुर्गों के आश्रम की व्यवस्था।", img: "44751.jpg"},
+            {title: "प्राकृतिक आपदा", desc: "क्षतिग्रस्तों की सहायता।", img: "44751.jpg"}
+        ];
+
+        function toggleSchemesModal() {
+            let loggedUser = localStorage.getItem('current_logged_user');
+            if(!loggedUser) {
+                alert('कृपया योजना देखने और आवेदन करने के लिए पहले "पब्लिक लॉगिन" करें!');
+                togglePublicLoginModal();
+                return;
+            }
+            let modal = document.getElementById('schemes-modal');
+            let grid = document.getElementById('schemes-popup-grid');
+            grid.innerHTML = '';
+            let allSchemes = JSON.parse(localStorage.getItem('custom_schemes_list') || JSON.stringify(defaultSchemes));
+            allSchemes.forEach(sch => {
+                let d = document.createElement('div');
+                d.className = "bg-white rounded-lg shadow border border-emerald-100 overflow-hidden flex flex-col justify-between";
+                d.innerHTML = `
+                    <div>
+                        <img src="${sch.img}" alt="Scheme" class="w-full h-32 object-cover border-b">
+                        <div class="p-2"><h4 class="font-bold text-xs text-emerald-900 mb-1">${sch.title}</h4><p class="text-[10px] text-gray-700">${sch.desc}</p></div>
+                    </div>
+                    <div class="p-2 pt-0"><button onclick="toggleSchemesModal(); openRegistrationForm('${sch.title}')" class="w-full text-center bg-amber-600 text-white py-1 rounded font-bold hover:bg-amber-700 text-[11px]">आवेदन करें</button></div>
+                `;
+                grid.appendChild(d);
+            });
+            modal.classList.toggle('hidden');
+            mobileMenu.classList.add('hidden');
+        }
+
+        function togglePublicLoginModal() { 
+            let modal = document.getElementById('public-login-modal');
+            modal.classList.toggle('hidden');
+            mobileMenu.classList.add('hidden');
+            
+            let loggedUser = localStorage.getItem('current_logged_user');
+            if(loggedUser && !modal.classList.contains('hidden')) {
+                document.getElementById('public-auth-container').classList.add('hidden');
+                document.getElementById('public-dashboard-box').classList.remove('hidden');
+                document.getElementById('pub-profile-name').innerText = loggedUser;
+                loadMyApplications();
+            } else {
+                document.getElementById('public-auth-container').classList.remove('hidden');
+                document.getElementById('public-dashboard-box').classList.add('hidden');
+            }
+        }
+
+        function switchAuthTab(type) {
+            let loginBox = document.getElementById('auth-login-box'), regBox = document.getElementById('auth-reg-box'), loginBtn = document.getElementById('tab-login-btn'), regBtn = document.getElementById('tab-reg-btn');
+            if(type === 'login') {
+                loginBox.classList.remove('hidden'); regBox.classList.add('hidden');
+                loginBtn.className = "w-1/2 pb-2 border-b-2 border-emerald-700 text-emerald-900 font-bold"; regBtn.className = "w-1/2 pb-2 text-gray-400";
+            } else {
+                loginBox.classList.add('hidden'); regBox.classList.remove('hidden');
+                regBtn.className = "w-1/2 pb-2 border-b-2 border-amber-600 text-amber-700 font-bold"; loginBtn.className = "w-1/2 pb-2 text-gray-400";
+            }
+        }
+
+        function handlePublicRegister(event) {
+            event.preventDefault();
+            let name = document.getElementById('reg-name').value, phone = document.getElementById('reg-phone').value, pass = document.getElementById('reg-pass').value;
+            let users = JSON.parse(localStorage.getItem('public_users_db') || '[]');
+            if(users.find(u => u.phone === phone)) { alert('मोबाइल नंबर पहले से रजिस्टर्ड है!'); switchAuthTab('login'); return; }
+            users.push({ name, phone, pass });
+            localStorage.setItem('public_users_db', JSON.stringify(users));
+            alert('रजिस्ट्रेशन सफल रहा! अब लॉगिन करें।');
+            switchAuthTab('login');
+        }
+
+        function handlePublicLogin(event) {
+            event.preventDefault();
+            let userPhone = document.getElementById('pub-user').value, userPass = document.getElementById('pub-pass').value;
+            let users = JSON.parse(localStorage.getItem('public_users_db') || '[]');
+            let found = users.find(u => u.phone === userPhone && u.pass === userPass);
+            if(found || (userPhone === "9454391778" && userPass === "123")) {
+                localStorage.setItem('current_logged_user', (found ? found.name : "आवेदक") + " (" + userPhone + ")");
+                localStorage.setItem('current_logged_phone', userPhone);
+                alert('पब्लिक लॉगिन सफल रहा!');
+                document.getElementById('pub-user').value = '';
+                document.getElementById('pub-pass').value = '';
+                togglePublicLoginModal();
+                toggleSchemesModal();
+            } else { alert('गलत मोबाइल नंबर या पासवर्ड!'); }
+        }
+
+        function publicLogout() {
+            localStorage.removeItem('current_logged_user');
+            localStorage.removeItem('current_logged_phone');
+            togglePublicLoginModal();
+        }
+
+        function loadMyApplications() {
+            let loggedPhone = localStorage.getItem('current_logged_phone');
+            let apps = JSON.parse(localStorage.getItem('public_applications') || '[]');
+            let tbody = document.getElementById('my-applications-list');
+            if(!tbody) return;
+            tbody.innerHTML = '';
+
+            let myApps = apps.filter(app => app.phone === loggedPhone || loggedPhone === "9454391778");
+
+            if(myApps.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center p-6 text-gray-500 font-semibold">आपने अभी तक किसी योजना में आवेदन नहीं किया है।</td></tr>`;
+                return;
+            }
+
+            myApps.forEach((app, index) => {
+                let badge = app.status === 'Approved' ? "bg-green-100 text-green-800" : (app.status === 'Rejected' ? "bg-red-100 text-red-800" : "bg-amber-100 text-amber-800");
+                let printBtn = `<button onclick="openPrintModal(${app.id})" class="bg-blue-700 text-white px-2.5 py-1 rounded font-bold text-[10px] hover:bg-blue-800"><i class="fa-solid fa-print"></i> फॉर्म प्रिंट</button>`;
+                
+                if(app.status === 'Approved') {
+                    printBtn += ` <button onclick="openApprovalCertificate(${app.id})" class="bg-emerald-700 text-white px-2.5 py-1 rounded font-bold text-[10px] hover:bg-emerald-800 mt-1 block"><i class="fa-solid fa-award"></i> स्वीकृति पत्र प्रिंट</button>`;
+                }
+
+                tbody.innerHTML += `
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="p-2.5 border">${index + 1}</td>
+                        <td class="p-2.5 border font-bold text-emerald-900">${app.service}</td>
+                        <td class="p-2.5 border"><strong class="text-amber-700">[${app.district}]</strong><br>${app.address}</td>
+                        <td class="p-2.5 border"><span class="${badge} px-2 py-0.5 rounded font-bold">${app.status}</span>${app.comment ? `<p class="text-[10px] text-gray-600 mt-1 italic">${app.comment}</p>` : ''}</td>
+                        <td class="p-2.5 border">${printBtn}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function openPrintModal(appId) {
+            let apps = JSON.parse(localStorage.getItem('public_applications') || '[]');
+            let app = apps.find(a => a.id === appId);
+            if(!app) return;
+
+            document.getElementById('cert-title-heading').innerText = "योजना आवेदन पावती पत्र (Acknowledgement Receipt)";
+            document.getElementById('prn-id').innerText = "#MSA-" + app.id;
+            document.getElementById('prn-name').innerText = app.name;
+            document.getElementById('prn-phone').innerText = app.phone;
+            document.getElementById('prn-service').innerText = app.service;
+            document.getElementById('prn-district').innerText = app.district;
+            document.getElementById('prn-address').innerText = app.address;
+            document.getElementById('prn-status').innerText = app.status;
+            document.getElementById('approval-remark-box').classList.add('hidden');
+            document.getElementById('prn-date').innerText = new Date().toLocaleDateString('hi-IN');
+
+            document.getElementById('print-modal').classList.remove('hidden');
+            document.getElementById('public-login-modal').classList.add('hidden');
+        }
+
+        function openApprovalCertificate(appId) {
+            let apps = JSON.parse(localStorage.getItem('public_applications') || '[]');
+            let app = apps.find(a => a.id === appId);
+            if(!app) return;
+
+            document.getElementById('cert-title-heading').innerText = "योजना स्वीकृति प्रमाण पत्र (Official Approval Certificate)";
+            document.getElementById('prn-id').innerText = "#MSA-CERT-" + app.id;
+            document.getElementById('prn-name').innerText = app.name;
+            document.getElementById('prn-phone').innerText = app.phone;
+            document.getElementById('prn-service').innerText = app.service;
+            document.getElementById('prn-district').innerText = app.district;
+            document.getElementById('prn-address').innerText = app.address;
+            document.getElementById('prn-status').innerText = "Approved (स्वीकृत)";
+            document.getElementById('prn-comment').innerText = app.comment || "संस्था द्वारा आपका आवेदन जांच उपरांत स्वीकृत कर लिया गया है।";
+            document.getElementById('approval-remark-box').classList.remove('hidden');
+            document.getElementById('prn-date').innerText = new Date().toLocaleDateString('hi-IN');
+
+            document.getElementById('print-modal').classList.remove('hidden');
+            document.getElementById('public-login-modal').classList.add('hidden');
+        }
+
+        function closePrintModal() {
+            document.getElementById('print-modal').classList.add('hidden');
+        }
+
+        function openRegistrationForm(schemeName) {
+            if(!localStorage.getItem('current_logged_user')) { alert('कृपया पहले लॉगिन करें!'); togglePublicLoginModal(); return; }
+            document.getElementById('logged-user-display').innerText = localStorage.getItem('current_logged_user');
+            document.getElementById('p-service').value = schemeName;
+            document.getElementById('registration-modal').classList.remove('hidden');
+        }
+        function toggleRegistrationModal() { document.getElementById('registration-modal').classList.add('hidden'); }
+
+        function handlePublicSubmit(event) {
+            event.preventDefault();
+            let name = document.getElementById('p-name').value;
+            let phone = document.getElementById('p-phone').value;
+            let service = document.getElementById('p-service').value;
+            let district = document.getElementById('p-district').value;
+            let address = document.getElementById('p-address').value;
+            let docInput = document.getElementById('p-doc');
+            let docName = docInput.files.length > 0 ? docInput.files[0].name : "Document.pdf";
+
+            let apps = JSON.parse(localStorage.getItem('public_applications') || '[]');
+            apps.push({ id: Date.now(), name, phone, service, district, address, docName, status: 'Pending', comment: 'आवेदन प्राप्त हुआ, समीक्षाधीन है।' });
+            localStorage.setItem('public_applications', JSON.stringify(apps));
+
+            alert('आपका आवेदन सफलतापूर्वक जमा हो गया है!');
+            document.getElementById('public-form').reset();
+            toggleRegistrationModal();
+        }
+
+        // --- यूनिवर्सल इमेज कम्प्रेशन और कन्वर्टर (सभी प्रकार की JPG, PNG, WEBP फोटो अपलोड के लिए) ---
+        function compressAndConvertImage(file, callback) {
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                let img = new Image();
+                img.onload = function() {
+                    let canvas = document.createElement('canvas');
+                    let ctx = canvas.getContext('2d');
+                    let maxWidth = 800;
+                    let maxHeight = 800;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > maxWidth) {
+                            height *= maxWidth / width;
+                            width = maxWidth;
+                        }
+                    } else {
+                        if (height > maxHeight) {
+                            width *= maxHeight / height;
+                            height = maxHeight;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    // कंप्रेस करके Base64 में बदलना
+                    let dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                    callback(dataUrl);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        // --- VIP फोटो अपलोड (सभी फॉर्मेट सपोर्ट) ---
+        function addVIPPhoto() {
+            let name = document.getElementById('vip-name').value;
+            let designation = document.getElementById('vip-designation').value;
+            let fileInput = document.getElementById('vip-img-file');
+            if(!name) { alert('कृपया नाम भरें!'); return; }
+
+            let vipData = JSON.parse(localStorage.getItem('vip_list') || '[]');
+
+            if(fileInput.files.length > 0) {
+                compressAndConvertImage(fileInput.files[0], function(base64Img) {
+                    vipData.push({ name, designation, img: base64Img });
+                    localStorage.setItem('vip_list', JSON.stringify(vipData));
+                    alert('VIP सदस्य सफलतापूर्वक जोड़ दिया गया है!');
+                    document.getElementById('vip-name').value = '';
+                    document.getElementById('vip-img-file').value = '';
+                    loadVIPsOnPage();
+                    populateDeleteDropdowns();
+                });
+            } else {
+                vipData.push({ name, designation, img: '44712.png' });
+                localStorage.setItem('vip_list', JSON.stringify(vipData));
+                alert('VIP सदस्य सफलतापूर्वक जोड़ दिया गया है!');
+                document.getElementById('vip-name').value = '';
+                loadVIPsOnPage();
+                populateDeleteDropdowns();
+            }
+        }
+
+        function deleteVIP() {
+            let idx = document.getElementById('delete-vip-select').value;
+            if(idx === "") { alert('VIP चुनें!'); return; }
+            let vipData = JSON.parse(localStorage.getItem('vip_list') || '[]');
+            vipData.splice(idx, 1);
+            localStorage.setItem('vip_list', JSON.stringify(vipData));
+            alert('VIP हटा दिया गया!');
+            loadVIPsOnPage(); populateDeleteDropdowns();
+        }
+
+        function loadVIPsOnPage() {
+            let savedVIPs = JSON.parse(localStorage.getItem('vip_list') || '[]');
+            let vipContainer = document.getElementById('vip-photos-container');
+            if(!vipContainer) return;
+            vipContainer.innerHTML = '';
+            
+            savedVIPs.forEach(vip => {
+                vipContainer.innerHTML += `
+                    <div class="bg-white p-3 rounded-xl shadow-md border flex flex-col items-center">
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-amber-600 shadow-sm mb-2 flex items-center justify-center bg-gray-100">
+                            <img src="${vip.img}" alt="VIP" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-bold text-xs sm:text-sm text-emerald-900">${vip.name}</p>
+                        <p class="text-[11px] text-gray-500 font-semibold">${vip.designation}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function populateDeleteDropdowns() {
+            let vipSelect = document.getElementById('delete-vip-select');
+            if(vipSelect) {
+                vipSelect.innerHTML = '<option value="">-- VIP चुनें --</option>';
+                JSON.parse(localStorage.getItem('vip_list') || '[]').forEach((v, idx) => {
+                    vipSelect.innerHTML += `<option value="${idx}">${v.name} (${v.designation})</option>`;
+                });
+            }
+
+            let schemeSelect = document.getElementById('delete-scheme-select');
+            let updateSchemeSelect = document.getElementById('update-scheme-select');
+            let schemesList = JSON.parse(localStorage.getItem('custom_schemes_list') || JSON.stringify(defaultSchemes));
+            
+            if(schemeSelect) schemeSelect.innerHTML = '<option value="">-- योजना चुनें --</option>';
+            if(updateSchemeSelect) updateSchemeSelect.innerHTML = '<option value="">-- फोटो बदलने के लिए योजना चुनें --</option>';
+            
+            schemesList.forEach((s, idx) => {
+                if(schemeSelect) schemeSelect.innerHTML += `<option value="${idx}">${s.title}</option>`;
+                if(updateSchemeSelect) updateSchemeSelect.innerHTML += `<option value="${idx}">${s.title}</option>`;
+            });
+
+            let noticeSelect = document.getElementById('delete-notice-select');
+            if(noticeSelect) {
+                noticeSelect.innerHTML = '<option value="">-- नोटिस चुनें --</option>';
+                JSON.parse(localStorage.getItem('unlimited_notices') || '[]').forEach((n, idx) => {
+                    noticeSelect.innerHTML += `<option value="${idx}">${n.title}</option>`;
+                });
+            }
+
+            let officerSelect = document.getElementById('delete-officer-select');
+            if(officerSelect) {
+                officerSelect.innerHTML = '<option value="">-- ऑफिसर चुनें --</option>';
+                JSON.parse(localStorage.getItem('officers_list') || JSON.stringify([{user: "officer", pass: "123", district: "All"}])).forEach((o, idx) => {
+                    officerSelect.innerHTML += `<option value="${idx}">${o.user} (${o.district})</option>`;
+                });
+            }
+        }
+
+        function addNewOfficer() {
+            let user = document.getElementById('new-officer-user').value, pass = document.getElementById('new-officer-pass').value, district = document.getElementById('new-officer-district').value;
+            if(!user || !pass) { alert('आईडी और पासवर्ड भरें!'); return; }
+            let officers = JSON.parse(localStorage.getItem('officers_list') || JSON.stringify([{user: "officer", pass: "123", district: "All"}]));
+            officers.push({ user, pass, district });
+            localStorage.setItem('officers_list', JSON.stringify(officers));
+            alert('नया जिला ऑफिसर आईडी जुड़ गया!');
+            document.getElementById('new-officer-user').value = ''; document.getElementById('new-officer-pass').value = '';
+            populateDeleteDropdowns();
+        }
+
+        function deleteOfficer() {
+            let idx = document.getElementById('delete-officer-select').value;
+            if(idx === "") { alert('ऑफिसर चुनें!'); return; }
+            let officers = JSON.parse(localStorage.getItem('officers_list') || JSON.stringify([{user: "officer", pass: "123", district: "All"}]));
+            if(officers.length <= 1) { alert('कम से कम 1 ऑफिसर होना जरूरी है!'); return; }
+            officers.splice(idx, 1);
+            localStorage.setItem('officers_list', JSON.stringify(officers));
+            alert('ऑफिसर हटा दिया गया!');
+            populateDeleteDropdowns();
+        }
+
+        function addNewScheme() {
+            let title = document.getElementById('admin-scheme-title').value;
+            let desc = document.getElementById('admin-scheme-desc').value;
+            let fileInput = document.getElementById('admin-scheme-file');
+            if(!title) { alert('योजना का नाम भरें!'); return; }
+            let allSchemes = JSON.parse(localStorage.getItem('custom_schemes_list') || JSON.stringify(defaultSchemes));
+            if(fileInput.files.length > 0) {
+                compressAndConvertImage(fileInput.files[0], function(base64Img) {
+                    allSchemes.push({ title, desc, img: base64Img });
+                    localStorage.setItem('custom_schemes_list', JSON.stringify(allSchemes));
+                    alert('फोटो सहित नई योजना सफलतापूर्वक जोड़ दी गई है!');
+                    document.getElementById('admin-scheme-title').value = ''; document.getElementById('admin-scheme-desc').value = ''; document.getElementById('admin-scheme-file').value = '';
+                    populateDeleteDropdowns();
+                });
+            } else {
+                allSchemes.push({ title, desc, img: '44751.jpg' });
+                localStorage.setItem('custom_schemes_list', JSON.stringify(allSchemes));
+                alert('नई योजना जोड़ दी गई है!');
+                document.getElementById('admin-scheme-title').value = ''; document.getElementById('admin-scheme-desc').value = '';
+                populateDeleteDropdowns();
+            }
+        }
+
+        function updateExistingSchemePhoto() {
+            let idx = document.getElementById('update-scheme-select').value;
+            let fileInput = document.getElementById('update-scheme-file');
+            if(idx === "") { alert('योजना चुनें!'); return; }
+            if(fileInput.files.length === 0) { alert('फोटो चुनें!'); return; }
+            let allSchemes = JSON.parse(localStorage.getItem('custom_schemes_list') || JSON.stringify(defaultSchemes));
+            compressAndConvertImage(fileInput.files[0], function(base64Img) {
+                allSchemes[idx].img = base64Img;
+                localStorage.setItem('custom_schemes_list', JSON.stringify(allSchemes));
+                alert('योजना की फोटो अपडेट कर दी गई है!');
+                document.getElementById('update-scheme-file').value = '';
+            });
+        }
+
+        function deleteScheme() {
+            let idx = document.getElementById('delete-scheme-select').value;
+            if(idx === "") { alert('योजना चुनें!'); return; }
+            let allSchemes = JSON.parse(localStorage.getItem('custom_schemes_list') || JSON.stringify(defaultSchemes));
+            allSchemes.splice(idx, 1);
+            localStorage.setItem('custom_schemes_list', JSON.stringify(allSchemes));
+            alert('योजना हटा दी गई!');
+            populateDeleteDropdowns();
+        }
+
+        function addUnlimitedNotice() {
+            let title = document.getElementById('admin-notice-title').value, desc = document.getElementById('admin-notice-desc').value, fileInput = document.getElementById('admin-notice-file');
+            if(!title) { alert('शीर्षक भरें!'); return; }
+            let notices = JSON.parse(localStorage.getItem('unlimited_notices') || '[]');
+            notices.push({ title, desc, fileName: fileInput.files.length > 0 ? fileInput.files[0].name : "Notice.pdf" });
+            localStorage.setItem('unlimited_notices', JSON.stringify(notices));
+            alert('नोटिस पब्लिश हो गया!');
+            document.getElementById('admin-notice-title').value = ''; document.getElementById('admin-notice-desc').value = ''; document.getElementById('admin-notice-file').value = '';
+            loadNoticesOnPage(); populateDeleteDropdowns();
+        }
+
+        function deleteNotice() {
+            let idx = document.getElementById('delete-notice-select').value;
+            if(idx === "") { alert('नोटिस चुनें!'); return; }
+            let notices = JSON.parse(localStorage.getItem('unlimited_notices') || '[]');
+            notices.splice(idx, 1);
+            localStorage.setItem('unlimited_notices', JSON.stringify(notices));
+            alert('नोटिस हटा दिया गया!');
+            loadNoticesOnPage(); populateDeleteDropdowns();
+        }
+
+        // --- स्लाइडर फोटो अपलोड (सभी प्रकार की इमेज सपोर्ट) ---
+        function saveAll6Sliders() {
+            let filesArr = [];
+            for(let i = 1; i <= 6; i++) {
+                let fileInput = document.getElementById(`s-file-${i}`);
+                let titleInput = document.getElementById(`s-title-${i}`);
+                if(fileInput.files.length > 0) {
+                    filesArr.push({ file: fileInput.files[0], title: titleInput.value || 'मातृभूमि सेवा संस्थान' });
+                }
+            }
+
+            if(filesArr.length === 0) { alert('कम से कम एक फोटो चुनें!'); return; }
+
+            let sliderData = [];
+            let processed = 0;
+            filesArr.forEach(item => {
+                compressAndConvertImage(item.file, function(base64Img) {
+                    sliderData.push({ title: item.title, img: base64Img });
+                    processed++;
+                    if(processed === filesArr.length) {
+                        localStorage.setItem('slider_list', JSON.stringify(sliderData));
+                        alert('स्लाइडर फोटो सफलतापूर्वक सेव हो गई हैं!');
+                        loadSlidersOnPage();
+                    }
+                });
+            });
+        }
+
+        function loadSlidersOnPage() {
+            let savedSliders = JSON.parse(localStorage.getItem('slider_list') || '[]');
+            if(savedSliders.length > 0) {
+                let sliderContainer = document.getElementById('slider-container');
+                sliderContainer.innerHTML = '';
+                savedSliders.forEach((slide, idx) => {
+                    let slideDiv = document.createElement('div');
+                    slideDiv.className = `slide absolute inset-0 transition-opacity duration-1000 ${idx === 0 ? 'opacity-100' : 'opacity-0'} flex items-center justify-center bg-cover bg-center`;
+                    slideDiv.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${slide.img}')`;
+                    slideDiv.innerHTML = `<div class="text-center text-white px-4"><h2 class="text-xl sm:text-3xl font-bold hindi-title">${slide.title}</h2></div>`;
+                    sliderContainer.appendChild(slideDiv);
+                });
+            }
+        }
+
+        function updateBankAndQR() {
+            let bName = document.getElementById('edit-bank-name').value;
+            let acNo = document.getElementById('edit-ac-no').value;
+            let ifsc = document.getElementById('edit-ifsc').value;
+            let upi = document.getElementById('edit-upi').value;
+            let qrInput = document.getElementById('edit-qr-file');
+
+            if(bName) localStorage.setItem('bank_name', bName);
+            if(acNo) localStorage.setItem('bank_ac', acNo);
+            if(ifsc) localStorage.setItem('bank_ifsc', ifsc);
+            if(upi) localStorage.setItem('bank_upi', upi);
+
+            if(qrInput.files.length > 0) {
+                compressAndConvertImage(qrInput.files[0], function(base64Img) {
+                    localStorage.setItem('site_qr', base64Img);
+                    document.getElementById('display-qr-img').src = base64Img;
+                    alert('बैंक विवरण और QR Code सफलतापूर्वक अपडेट हो गए हैं!');
+                    loadBankInfo();
+                });
+            } else {
+                alert('बैंक विवरण सफलतापूर्वक अपडेट हो गए हैं!');
+                loadBankInfo();
+            }
+        }
+
+        function loadBankInfo() {
+            if(localStorage.getItem('bank_name')) document.getElementById('lbl-bank').innerText = localStorage.getItem('bank_name');
+            if(localStorage.getItem('bank_ac')) document.getElementById('lbl-ac').innerText = localStorage.getItem('bank_ac');
+            if(localStorage.getItem('bank_ifsc')) document.getElementById('lbl-ifsc').innerText = localStorage.getItem('bank_ifsc');
+            if(localStorage.getItem('bank_upi')) document.getElementById('lbl-upi').innerText = localStorage.getItem('bank_upi');
+            if(localStorage.getItem('site_qr')) document.getElementById('display-qr-img').src = localStorage.getItem('site_qr');
+            
+            if(document.getElementById('edit-bank-name')) {
+                document.getElementById('edit-bank-name').value = localStorage.getItem('bank_name') || 'State Bank of India';
+                document.getElementById('edit-ac-no').value = localStorage.getItem('bank_ac') || '45243554345';
+                document.getElementById('edit-ifsc').value = localStorage.getItem('bank_ifsc') || 'SBIN0064993';
+                document.getElementById('edit-upi').value = localStorage.getItem('bank_upi') || '9454391778@ptyes';
+            }
+        }
+
+        function saveGoogleMap() {
+            let mapHtml = document.getElementById('admin-map-input').value;
+            if(!mapHtml) { alert('मैप कोड भरें!'); return; }
+            localStorage.setItem('google_map_embed', mapHtml);
+            alert('मैप सेव हो गया!');
+            loadGoogleMap();
+        }
+
+        function loadGoogleMap() {
+            let mapHtml = localStorage.getItem('google_map_embed');
+            if(mapHtml) { document.getElementById('google-map-container').innerHTML = mapHtml; document.getElementById('admin-map-input').value = mapHtml; }
+        }
+
+        function saveSocialLinks() {
+            let socialData = { fb: document.getElementById('social-fb').value, yt: document.getElementById('social-yt').value, ig: document.getElementById('social-ig').value, wa: document.getElementById('social-wa').value, tg: document.getElementById('social-tg').value };
+            localStorage.setItem('social_links', JSON.stringify(socialData));
+            alert('सोशल मीडिया सेव हो गया!');
+            loadSocialIcons();
+        }
+
+        function loadSocialIcons() {
+            let links = JSON.parse(localStorage.getItem('social_links') || '{}');
+            let container = document.getElementById('footer-social-icons');
+            container.innerHTML = '';
+            let icons = [{icon: 'fa-facebook text-blue-500', url: links.fb}, {icon: 'fa-youtube text-red-500', url: links.yt}, {icon: 'fa-instagram text-pink-500', url: links.ig}, {icon: 'fa-whatsapp text-green-500', url: links.wa}, {icon: 'fa-telegram text-sky-400', url: links.tg}];
+            icons.forEach(item => {
+                if(item.url) { container.innerHTML += `<a href="${item.url}" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition"><i class="fa-brands ${item.icon}"></i></a>`; }
+            });
+            if(links.fb) document.getElementById('social-fb').value = links.fb;
+            if(links.yt) document.getElementById('social-yt').value = links.yt;
+            if(links.ig) document.getElementById('social-ig').value = links.ig;
+            if(links.wa) document.getElementById('social-wa').value = links.wa;
+            if(links.tg) document.getElementById('social-tg').value = links.tg;
+        }
+
+        function updateWebsiteLogo() {
+            let fileInput = document.getElementById('logo-file');
+            if(fileInput.files.length === 0) { alert('लोगो चुनें!'); return; }
+            compressAndConvertImage(fileInput.files[0], function(base64Img) {
+                localStorage.setItem('site_logo', base64Img);
+                document.getElementById('header-logo').src = base64Img;
+                alert('लोगो अपडेट हो गया!');
+            });
+        }
+
+        function loadNoticesOnPage() {
+            let savedNotices = JSON.parse(localStorage.getItem('unlimited_notices') || '[]');
+            let noticeContainer = document.getElementById('notice-board-container');
+            noticeContainer.innerHTML = `<div class="bg-white p-3 rounded shadow-sm border-l-4 border-amber-600 flex justify-between items-center"><div><p class="font-bold text-emerald-900">🌿 वृहद वृक्षारोपण अभियान</p><p class="text-gray-600 mt-0.5">संस्था द्वारा पौधे वितरित किए जाएंगे।</p></div></div>`;
+            savedNotices.forEach(n => {
+                noticeContainer.prepend(document.createRange().createContextualFragment(`<div class="bg-white p-3 rounded shadow-sm border-l-4 border-amber-600 flex justify-between items-center"><div><p class="font-bold text-emerald-900">${n.title}</p><p class="text-gray-600 mt-0.5">${n.desc}</p></div><div class="text-right"><span class="text-[10px] text-gray-400 block">${n.fileName}</span><a href="#" class="text-blue-600 underline font-semibold text-[11px]"><i class="fa-solid fa-file-pdf"></i> View</a></div></div>`));
+            });
+        }
+
+        function checkAdminAccess() { document.getElementById('admin-login-modal').classList.remove('hidden'); mobileMenu.classList.add('hidden'); }
+        function closeAdminLogin() { document.getElementById('admin-login-modal').classList.add('hidden'); }
+        function verifyAdminPassword() {
+            let passInput = document.getElementById('admin-pass-input').value;
+            if(passInput === (localStorage.getItem('admin_password') || "1234")) { closeAdminLogin(); toggleAdminPanel(); populateDeleteDropdowns(); loadBankInfo(); document.getElementById('admin-pass-input').value = ''; }
+            else { alert('गलत पासवर्ड!'); }
+        }
+        function toggleAdminPanel() { document.getElementById('admin-modal').classList.toggle('hidden'); }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if(localStorage.getItem('site_logo')) document.getElementById('header-logo').src = localStorage.getItem('site_logo');
+            loadBankInfo();
+            loadVIPsOnPage();
+            loadSlidersOnPage();
+            loadNoticesOnPage();
+            loadGoogleMap();
+            loadSocialIcons();
+        });
+
+        let currentSlide = 0;
+        function nextSlide() {
+            let slides = document.querySelectorAll('.slide');
+            if(slides.length > 1) {
+                slides.forEach((slide, i) => { slide.style.opacity = (i === currentSlide) ? '1' : '0'; });
+                currentSlide = (currentSlide + 1) % slides.length;
+            }
+        }
+        setInterval(nextSlide, 4000);
+    </script>
+                                                                                                </body>
+                                                                                              </html>
